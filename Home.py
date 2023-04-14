@@ -1,28 +1,58 @@
 import streamlit as st
 import pandas
+import requests
+
+# Prepare API key and API url
+
+api_key = "CcZrS9EatIXPSHyW9EtnySNGkHfxwtG3CCoIlRoi"
+url = "https://api.nasa.gov/planetary/apod?"\
+        f"api_key={api_key}"
+
+# Get requested data as a dictionary
+response1 = requests.get(url)
+data = response1.json()
+
+# Extract the image title, url, and explanation
+image_url = data["url"]
+title = data["title"]
+explanation = data["explanation"][:84] + "..."
+
+# Download the image
+image_filepath = "img.png"
+response2 = requests.get(image_url)
+with open(image_filepath, "wb") as file:
+    file.write(response2.content)
 
 st.set_page_config(layout="wide")
 
 col1, col2 = st.columns(2)
 
 with col1:
-    st.image("images/photo.png")
+    st.image(image_filepath)
+
 
 with col2:
-    st.title("Dimitrov-S-Dev")
+
     content = """
-    Hi, This is Dimitrov-S!\n
-    A Python programmer and developer.\n
-    Graduated 2023 Python Software Engineering Program with SoftUni University Bulgaria.\n
-    With focus on using:\n
-    Python, MSSQL, Postgres, JS, CSS, HTML,STREAMLIT, DJANGO, FLASK, FASTAPI
+    Hi,\n
+    This is Dimitrov-S-Dev!\n
+    I mainly code in Python, but I am always learning.\n
+    Graduated Python Software Engineering Program at:\n
+    "SoftUni University Bulgaria".\n
+    With knowledge focused on:\n
+    Python, JS, CSS, HTML\n
+    STREAMLIT, DJANGO, FLASK, FASTAPI\n
+    MSSQL, Postgres, Sqlite, Mysql\n
+    Docker, Cloud, Linux Shell\n
+    ....
     """
     st.info(content)
 
 content2 = """
-Below you can find some of the apps I have build in Python.Feel free to contact me.
+Below you can find some of the apps I have build in Python.Feel free to contact
+me at Contact Me page form.
 """
-st.write(content2)
+st.info(content2)
 
 col3, empty_col, col4 = st.columns([1.5, 0.5, 1.5])
 
