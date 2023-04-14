@@ -44,7 +44,7 @@ with col2:
     STREAMLIT, DJANGO, FLASK, FASTAPI\n
     MSSQL, Postgres, Sqlite, Mysql\n
     Docker, Cloud, Linux Shell\n
-    ....
+    ...
     """
     st.info(content)
 
