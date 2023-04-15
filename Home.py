@@ -41,8 +41,8 @@ with col2:
     "SoftUni University Bulgaria".\n
     With knowledge focused on:\n
     Python, JS, CSS, HTML\n
-    STREAMLIT, DJANGO, FLASK, FASTAPI\n
-    MSSQL, Postgres, Sqlite, Mysql\n
+    Streamlit, Django, Flask, FastAPI\n
+    MsSQL, Postgres, SQLite, MySQL\n
     Docker, Cloud, Linux Shell\n
     ...
     """
